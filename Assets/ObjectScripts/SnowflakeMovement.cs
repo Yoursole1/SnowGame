@@ -33,11 +33,9 @@ public class SnowflakeMovement : MonoBehaviour
             Vector2 direction = (Vector2)(this.prevMouse - vector2Mouse);
 
             direction.y = 0;
-            Debug.Log(vector2Mouse.x);
             if (direction.x != 0)
             {
                 float distance = (vector2Mouse - this.body.position).magnitude;
-                
                 float velocity = direction.magnitude * (direction.x / Math.Abs(direction.x)) / (1000 * distance * Time.deltaTime);
 
                 if (vector2Mouse.x > this.body.position.x - 20 && vector2Mouse.x < this.body.position.x + 20)
