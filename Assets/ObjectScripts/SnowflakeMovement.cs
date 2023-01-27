@@ -21,34 +21,41 @@ public class SnowflakeMovement : MonoBehaviour
     {
         if (this.frameDelayCount == SnowflakeMovement.frameDelay)
         {
-            Vector3 mouse = Input.mousePosition;
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 vector2Mouse = new Vector2(mouse.x, mouse.y);
+            
             if (this.prevMouse == null)
             {
                 this.prevMouse = vector2Mouse;
                 return;
             }
-            
-            vector2Mouse.x -= 460; //oh no hardcoded to center mouse
-             
+
             Vector2 direction = (Vector2)(this.prevMouse - vector2Mouse);
 
             direction.y = 0;
-            float velocity = direction.magnitude / (10000 * Time.deltaTime);
-            
-        Debug.Log(this.body.position.x); //convert mouse to in game world location 
-            if (vector2Mouse.x > this.body.position.x - 100 && vector2Mouse.x < this.body.position.x + 100)
+            Debug.Log(vector2Mouse.x);
+            if (direction.x != 0)
             {
-                Vector2 movement = new Vector2(1, 0) * (-velocity);
-                this.body.velocity += movement;
+                float distance = (vector2Mouse - this.body.position).magnitude;
+                
+                float velocity = direction.magnitude * (direction.x / Math.Abs(direction.x)) / (1000 * distance * Time.deltaTime);
+
+                if (vector2Mouse.x > this.body.position.x - 20 && vector2Mouse.x < this.body.position.x + 20)
+                {
+                    Vector2 movement = new Vector2(1, 0) * (-velocity);
+                    this.body.velocity += movement;
+                }
             }
 
-            
-        
             this.prevMouse = vector2Mouse;
             this.frameDelayCount = 0;
         }
-        
+
+        if (this.body.position.y < -9)
+        {
+            Destroy(gameObject);
+            return;
+        }
         
         this.frameDelayCount++;
     }
