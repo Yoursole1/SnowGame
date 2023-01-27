@@ -15,11 +15,11 @@ public class SnowflakeMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int[] destroyHeight = { 3, -2, -9 };
-        float[] size = { 0.5f, 0.8f, 1f };
+        int[] destroyHeight = { 3, -2, -6, -9 };
+        float[] size = { 0.4f, 0.6f, 0.8f, 1f };
 
         Random random = new Random();
-        int ele = random.Next(0, 3);
+        int ele = random.Next(0, 4);
 
         this.destroyHeight = destroyHeight[ele];
         this.size = size[ele];
