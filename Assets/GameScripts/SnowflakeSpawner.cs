@@ -31,6 +31,6 @@ public class SnowflakeSpawner : MonoBehaviour
     {
         Random random = new Random();
         this.snowflakePrefab.GetComponent<Rigidbody2D>().gravityScale = 1 + (((float)random.NextDouble() - 0.5f) / 2);
-        Instantiate(this.snowflakePrefab, new Vector3(x, 9, 0), Quaternion.identity); //y=9 because of aspect ratio
+        Instantiate(this.snowflakePrefab, new Vector3(x, 9, -1), Quaternion.identity); //y=9 because of aspect ratio
     }
 }
