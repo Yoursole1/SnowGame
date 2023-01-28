@@ -5,6 +5,8 @@ namespace GameScripts
 {
     public class GameData
     {
+        public static bool playerIsOnGround;
+        
         public static List<KeyCombination> KeyCombinations = new List<KeyCombination>
         {
             new (new W_Combination(), new [] { KeyCode.W}),
