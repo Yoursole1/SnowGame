@@ -1,8 +1,10 @@
-﻿namespace GameScripts
+﻿using UnityEngine;
+
+namespace GameScripts
 {
     public interface KeyFunction
     {
-        void triggerKeyDown();
-        void triggerKeyUp();
+        void triggerKeyDown(GameObject player);
+        void triggerKeyUp(GameObject player);
     }
 }

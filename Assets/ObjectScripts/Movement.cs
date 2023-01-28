@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
                 {
                     if (combination.isValid(this.pressedKeys, code, true))
                     {
-                        combination.runFunction(true);
+                        combination.runFunction(true, gameObject);
                     }
                 }
                 
@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
                 {
                     if (combination.isValid(this.pressedKeys, code, false))
                     {
-                        combination.runFunction(false);
+                        combination.runFunction(false, gameObject);
                     }
                 }
                 

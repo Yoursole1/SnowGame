@@ -15,11 +15,11 @@ public class SnowflakeMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int[] destroyHeight = { 3, -2, -6, -9 };
-        float[] size = { 0.4f, 0.6f, 0.8f, 1f };
+        int[] destroyHeight = { 3, 1, 3, 1, -2, -6, -8 };
+        float[] size = { 0.4f, 0.5f, 0.4f, 0.5f, 0.6f, 0.8f, 1f };
 
         Random random = new Random();
-        int ele = random.Next(0, 4);
+        int ele = random.Next(0, 7);
 
         this.destroyHeight = destroyHeight[ele];
         this.size = size[ele];
@@ -29,11 +29,18 @@ public class SnowflakeMovement : MonoBehaviour
 
     // Update is called once per frame
     private Vector2? prevMouse;
-    private int frameDelayCount = 0;
+    private int frameDelayCount;
     private static int frameDelay = 10;
     
     void Update()
     {
+        if (this.frameDelayCount % 5 == 0)
+        {
+            this.transform.Rotate(Vector3.up, 1);
+            this.transform.Rotate(Vector3.right, 1);
+        }
+        
+        
         if (this.frameDelayCount == SnowflakeMovement.frameDelay)
         {
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);

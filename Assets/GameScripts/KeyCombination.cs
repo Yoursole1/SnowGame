@@ -41,11 +41,11 @@ namespace GameScripts
             return latestPress == this._code[this._code.Length - 1];
         }
 
-        public void runFunction(bool keyDown)
+        public void runFunction(bool keyDown, GameObject player)
         {
             if (!this.active && keyDown)
             {
-                this._function.triggerKeyDown();
+                this._function.triggerKeyDown(player);
                 this.active = true;
                 return;
             }
@@ -55,7 +55,7 @@ namespace GameScripts
                 return;
             }
             this.active = false;
-            this._function.triggerKeyUp();
+            this._function.triggerKeyUp(player);
         }
     }
 }
