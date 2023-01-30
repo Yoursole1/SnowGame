@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GameScripts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ObjectScripts
@@ -12,9 +13,35 @@ namespace ObjectScripts
         public Rigidbody2D body;
         private Dictionary<KeyCode, bool> pressedKeys = new Dictionary<KeyCode, bool>();
 
+        private static PlayerManager instance;
+
+        public static PlayerManager getInstance() //pseudo singleton
+        {
+            return instance;
+        }
+
+
+        public void jump()
+        {
+            this.body.velocity += Vector2.up * 10;
+        }
+
+        public void airSideJump(Vector2 dir)
+        {
+            this.body.velocity += dir;
+            
+            Debug.Log("air jump (special animation)");
+        }
+
+        public void groundSide(Vector2 dir)
+        {
+            this.body.velocity += dir;
+        }
+        
         void Start()
         {
             body.position = new Vector2(0, 0);
+            instance = this;
         }
 
         // Update is called once per frame

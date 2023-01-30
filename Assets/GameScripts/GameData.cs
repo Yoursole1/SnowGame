@@ -11,7 +11,9 @@ namespace GameScripts
         {
             new (new W_Combination(), new [] { KeyCode.W}),
             
-            new(new WR_Combination(), new [] { KeyCode.W, KeyCode.R})
+            new(new WR_Combination(), new [] { KeyCode.W, KeyCode.R}),
+            
+            new(new Space_Combination(), new [] { KeyCode.Space})
         };
 
 

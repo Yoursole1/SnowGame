@@ -1,9 +1,8 @@
-﻿using ObjectScripts;
 using UnityEngine;
 
 namespace GameScripts
 {
-    public class W_Combination : KeyFunction
+    public class D_Combination : KeyFunction
     {
         public void triggerKeyDown(GameObject player)
         {
