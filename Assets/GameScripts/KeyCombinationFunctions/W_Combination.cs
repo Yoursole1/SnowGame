@@ -1,7 +1,7 @@
 ﻿using ObjectScripts;
 using UnityEngine;
 
-namespace GameScripts
+namespace GameScripts.KeyCombinationFunctions
 {
     public class W_Combination : KeyFunction
     {

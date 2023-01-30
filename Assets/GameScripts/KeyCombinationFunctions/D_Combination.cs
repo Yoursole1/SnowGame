@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameScripts
+namespace GameScripts.KeyCombinationFunctions
 {
     public class D_Combination : KeyFunction
     {

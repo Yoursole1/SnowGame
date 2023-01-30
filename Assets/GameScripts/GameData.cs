@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameScripts.KeyCombinationFunctions;
 using UnityEngine;
 
 namespace GameScripts
@@ -13,7 +14,9 @@ namespace GameScripts
             
             new(new WR_Combination(), new [] { KeyCode.W, KeyCode.R}),
             
-            new(new Space_Combination(), new [] { KeyCode.Space})
+            new(new Space_Combination(), new [] { KeyCode.Space}),
+            
+            new(new A_Combination(), new [] { KeyCode.A })
         };
 
 

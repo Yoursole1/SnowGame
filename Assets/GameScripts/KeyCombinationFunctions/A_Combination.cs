@@ -1,17 +1,21 @@
+using ObjectScripts;
 using UnityEngine;
 
-namespace GameScripts
+namespace GameScripts.KeyCombinationFunctions
 {
     public class A_Combination : KeyFunction
     {
         public void triggerKeyDown(GameObject player)
         {
-            throw new System.NotImplementedException();
+            if (GameData.playerIsOnGround)
+            {
+                PlayerManager.getInstance().groundSide(Vector2.left * new Vector2(10, 10));
+            }
         }
 
         public void triggerKeyUp(GameObject player)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }
