@@ -6,5 +6,7 @@ namespace GameScripts.KeyCombinationFunctions
     {
         void triggerKeyDown(GameObject player);
         void triggerKeyUp(GameObject player);
+
+        void update(GameObject player); // called on loop and run iff the combination is active
     }
 }

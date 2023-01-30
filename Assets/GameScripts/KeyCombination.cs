@@ -8,13 +8,13 @@ namespace GameScripts
     public class KeyCombination : ValueAttribute
     {
         private KeyCode[] _code; //last key pressed is the "trigger key"
-        private KeyFunction _function;
+        public KeyFunction Function { get; }
         private bool active;
 
         public KeyCombination(KeyFunction function, KeyCode[] code)
         {
             this._code = code;
-            this._function = function;
+            this.Function = function;
         }
 
         //called when a key is pressed.
@@ -46,7 +46,7 @@ namespace GameScripts
         {
             if (!this.active && keyDown)
             {
-                this._function.triggerKeyDown(player);
+                this.Function.triggerKeyDown(player);
                 this.active = true;
                 return;
             }
@@ -56,7 +56,7 @@ namespace GameScripts
                 return;
             }
             this.active = false;
-            this._function.triggerKeyUp(player);
+            this.Function.triggerKeyUp(player);
         }
     }
 }

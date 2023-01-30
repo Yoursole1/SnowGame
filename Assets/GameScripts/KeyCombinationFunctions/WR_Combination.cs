@@ -13,5 +13,10 @@ namespace GameScripts.KeyCombinationFunctions
         {
             Debug.Log("WR DeActive");
         }
+
+        public void update(GameObject player)
+        {
+            
+        }
     }
 }

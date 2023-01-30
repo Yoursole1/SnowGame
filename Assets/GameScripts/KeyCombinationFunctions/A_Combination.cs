@@ -5,17 +5,27 @@ namespace GameScripts.KeyCombinationFunctions
 {
     public class A_Combination : KeyFunction
     {
+
+        private bool active;
         public void triggerKeyDown(GameObject player)
         {
             if (GameData.playerIsOnGround)
             {
-                PlayerManager.getInstance().groundSide(Vector2.left * new Vector2(10, 10));
+                this.active = true;
             }
         }
 
         public void triggerKeyUp(GameObject player)
         {
-            
+            this.active = false;
+        }
+
+        public void update(GameObject player)
+        {
+            if (this.active)
+            {
+                PlayerManager.getInstance().groundSide(Vector2.left);
+            }
         }
     }
 }

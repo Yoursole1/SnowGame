@@ -35,6 +35,10 @@ namespace ObjectScripts
 
         public void groundSide(Vector2 dir)
         {
+            if (this.body.velocity.magnitude > 5)
+            {
+                return;
+            }
             this.body.velocity += dir;
         }
         
@@ -47,7 +51,11 @@ namespace ObjectScripts
         // Update is called once per frame
         void Update()
         {
-
+            foreach (KeyCombination c in GameData.KeyCombinations)
+            {
+                c.Function.update(gameObject);
+            }
+            
             foreach (KeyCode code in Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKeyDown(code))

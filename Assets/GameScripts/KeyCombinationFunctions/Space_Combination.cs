@@ -17,5 +17,10 @@ namespace GameScripts.KeyCombinationFunctions
         {
             
         }
+
+        public void update(GameObject player)
+        {
+            
+        }
     }
 }
