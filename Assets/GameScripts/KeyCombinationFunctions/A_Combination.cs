@@ -9,10 +9,7 @@ namespace GameScripts.KeyCombinationFunctions
         private bool active;
         public void triggerKeyDown(GameObject player)
         {
-            if (GameData.playerIsOnGround)
-            {
-                this.active = true;
-            }
+            this.active = true;
         }
 
         public void triggerKeyUp(GameObject player)
